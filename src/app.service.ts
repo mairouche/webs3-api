@@ -8,7 +8,7 @@ export class AppService {
   }
 
   async getBuckets(): Promise<Array<Bucket>> {
-    const client = new S3Client({});
+    const client = new S3Client({ region: 'eu-west-1' });
     const command = new ListBucketsCommand({});
     return await client.send(command).then((res) => res.Buckets);
   }
